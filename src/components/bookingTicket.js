@@ -42,7 +42,7 @@ const style = {
   p: 4,
 };
 
-const BookingTicket = () => {
+const BookingTicket = (props) => {
   const [AvailabilityModalOpnen, setAvailabilityModalOpnen] = useState(false);
   const [AvailabilityModalOpnenError, setAvailabilityModalOpnenError] =
     useState(false);
@@ -51,9 +51,11 @@ const BookingTicket = () => {
   const [date, setDate] = useState();
   const [end, setEnd] = useState();
   const [start, setStart] = useState();
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
-    date, end, start, seats;
+    date, end, start, seats, email;
+    handleDelete(props.message);
   }, []);
 
   //null validation of the form
@@ -67,7 +69,7 @@ const BookingTicket = () => {
   };
 
   const onInsertOk = async () => {
-    const body = { date, start, end, seats };
+    const body = { date, start, end, seats, email };
     try {
       const insert = await fetch('http://localhost:8080/bus/bookTickets', {
         method: 'POST',
@@ -83,11 +85,40 @@ const BookingTicket = () => {
       setStart('');
       setEnd('');
       setSeats('');
-      <AdminViewBookedSeats
-        AvailabilityModalOpnenError={AvailabilityModalOpnenError}
-      />;
+      setEmail('');
     } catch (error) {
       console.error(error.message);
+    }
+  };
+
+  //delete
+  const handleDelete = async (message) => {
+    console.log(message, 'aaaaaaaaaa');
+    // try {
+    //   console.log('delete blog', id);
+    //   const deleteBooking = await fetch(
+    //     `http://localhost:8080/bus/removeBookById/${id}`,
+    //     {
+    //       method: 'DELETE',
+    //     }
+    //   );
+    //   const deleteDetails = await deleteBooking.json();
+    //   if (deleteDetails) {
+    //     alert('Seat booking cancelled sucessfully.');
+    //     location.reload();
+    //     handleClose();
+    //   } else {
+    //     alert('Something went wrong');
+    //   }
+    //   if (newData.msg === 'delete success') {
+    //     setAvailabilityModalOpnenError(true);
+    //   }
+    //   console.log(deleteBlog);
+    // } catch (error) {
+    //   console.error(error.message);
+    // }
+    if (message == 'delete success') {
+      setAvailabilityModalOpnenError(true);
     }
   };
 
@@ -102,15 +133,6 @@ const BookingTicket = () => {
 
   return (
     <>
-      {/* <div
-        className="col-md-8 mt-4 mx-auto"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      > */}
       <div
         className="col-lg-9 mt-2 mb-2"
         style={{
@@ -232,6 +254,18 @@ const BookingTicket = () => {
                     <MenuItem value={12}>12</MenuItem>
                   </Select>
                 </div>
+                <div style={{ marginTop: 5 }}>
+                  <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
+                    Email
+                  </Typography>
+                  <TextField
+                    id="outlined-basic"
+                    label="email"
+                    variant="outlined"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
                 <div
                   style={{
                     display: 'flex',
@@ -245,7 +279,7 @@ const BookingTicket = () => {
                     onClick={onInsertOk}
                     size="small"
                   >
-                    Check Availability
+                    Book Tickets
                   </ColorButton>
                 </div>
               </Box>

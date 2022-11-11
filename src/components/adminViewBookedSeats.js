@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Button } from '@mui/material';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { Icon } from '@mui/material';
+import BookingTicket from './bookingTicket';
 
-const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
-  const [date, setDate] = useState();
-  const [start, setStart] = useState();
-  const [end, setEnd] = useState();
-  const [seats, setSeats] = useState();
+const AdminViewBookedSeats = () => {
+  const [id, setId] = useState();
+
   const [bookingArray, setBookingArray] = useState([]);
   useEffect(() => {
     getAllBlogs();
@@ -20,6 +13,8 @@ const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
 
   const handleDelete = async (e, id) => {
     try {
+      setId(id);
+
       console.log('delete blog', id);
       const deleteBooking = await fetch(
         `http://localhost:8080/bus/removeBookById/${id}`,
@@ -29,9 +24,10 @@ const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
       );
       const deleteDetails = await deleteBooking.json();
       if (deleteDetails) {
-        alert('Blog deleted sucessfully.');
+        console.log(deleteDetails.msg, 'ddd');
+
+        alert('Seat booking cancelled sucessfully.');
         location.reload();
-        AvailabilityModalOpnenError();
       } else {
         alert('Something went wrong');
       }
@@ -67,10 +63,12 @@ const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
             start: jsonData[i].start,
             end: jsonData[i].end,
             seats: jsonData[i].seats,
+            email: jsonData[i].email,
           };
           tempArray.push(temp);
         }
         setBookingArray(tempArray);
+
         console.log(tempArray);
       }
     } catch (error) {
@@ -78,7 +76,21 @@ const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
     }
   };
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{
+        width: '100%',
+        height: '50vh',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <div
+        className="col-lg-9 mt-2 mb-2"
+        style={{ backgroundColor: '#0000A0', color: 'white' }}
+      >
+        <h3>All Seat Booking Details</h3>
+      </div>
       <table className="table table-hover">
         <thead>
           <th>#</th>
@@ -86,7 +98,7 @@ const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
           <th>Start</th>
           <th>Destination</th>
           <th>No.of seats</th>
-          <th>id</th>
+          <th>Email</th>
         </thead>
 
         <tbody>
@@ -97,22 +109,14 @@ const AdminViewBookedSeats = (AvailabilityModalOpnenError) => {
               <td>{post.start}</td>
               <td>{post.end}</td>
               <td>{post.seats}</td>
-              <td>{post.id}</td>
+              <td>{post.email}</td>
 
-              <td>
-                <button
-                  className="btn btn-warning"
-                  onClick={(e) => handleAccept(e, post.id)}
-                >
-                  <i className="fas fa-edit"></i>&nbsp;Accept
-                </button>
-              </td>
               <td>
                 <button
                   className="btn btn-danger"
                   onClick={(e) => handleDelete(e, post.id)}
                 >
-                  &nbsp;Delete
+                  <i className="fas fa-trash-alt"></i>&nbsp;cancel
                 </button>
               </td>
             </tr>

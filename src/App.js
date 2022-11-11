@@ -18,6 +18,7 @@ import CusViewTimeTables from './components/CusViewTimeTables';
 import AdminViewUserAccounts from './components/AdminViewUserAccounts';
 import Footer from './components/auth/Footer';
 import Navbar from './components/layout/Navbar';
+import UserViewBookedSeats from './components/userViewBookings';
 
 let isauth = localStorage.getItem('user');
 
@@ -49,6 +50,7 @@ function App() {
           <Route path="/UpdateTimeTables/:id" element={<UpdateTimeTables />} />
           <Route path="/AddUserAccount" element={<AddUserAccount />} />
           <Route path="/ViewUserAccounts" element={<ViewUserAccounts />} />
+          <Route path="/userViewBookings" element={<UserViewBookedSeats />} />
           <Route
             path="/AdminViewUserAccounts"
             element={<AdminViewUserAccounts />}
@@ -59,7 +61,7 @@ function App() {
           />
         </Routes>
 
-        <div style={{ marginTop: '0' }}>
+        <div container direction="row" alignItems="flex-end">
           {' '}
           <Footer />
         </div>
