@@ -85,77 +85,215 @@ const UserViewBookedSeats = () => {
   };
 
   return (
-    <div
-      className="container"
-      style={{
-        width: '100%',
-        height: '50vh',
-        overflow: 'hidden',
-        position: 'relative',
-      }}
-    >
-      <div
-        style={{ display: 'flex', flexDirection: 'row', gap: 8, marginTop: 8 }}
-      >
-        <br />
-        <input onChange={handleEmail} placeholder="Enter email to search" />
-        <br />
-        <br />
-        <button className="btn btn-success" onClick={() => SearchBookings()}>
-          Search My Bookings
-        </button>
-      </div>
-      <div
-        className="col-lg-9 mt-2 mb-2"
-        style={{ backgroundColor: '#864000', color: 'white' }}
-      >
-        <h3>Accepted Seat Bookings</h3>
-      </div>
-      <table className="table table-hover">
-        <thead>
-          <th>#</th>
-          <th>Date</th>
-          <th>Start</th>
-          <th>Destination</th>
-          <th>No.of seats</th>
-          <th>Email</th>
-          <th>Accept status</th>
-        </thead>
+    <div>
+      <center>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/CusViewTimeTables"
+                  >
+                    <h5>View Bus Time Table</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/ViewUserAccounts"
+                  >
+                    <h5>View User Account Details</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href="/AddUserAccount"
+                  >
+                    <h5>Create New User Account</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/ViewUserAccounts"
+                  >
+                    <h5>Update User Account Details</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a className="nav-link" href="/ViewUserAccounts">
+                    <h5>Delete User Account Details</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a className="nav-link" href="/bookingTicket">
+                    <h5>Online Seat Booking</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a className="nav-link" href="/userViewBookings">
+                    <h5>View Seat Booking Details</h5>
+                  </a>
+                </b>
+              </li>
+              <button className="btn btn-success">
+                <a
+                  href="/HomePage"
+                  style={{ textDecoration: 'none', color: 'white' }}
+                >
+                  Log Out
+                </a>
+              </button>
+            </ul>
+          </div>
+        </nav>
+      </center>
 
-        <tbody>
-          {bookingArray.map((post, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{post.date}</td>
-              <td>{post.start}</td>
-              <td>{post.end}</td>
-              <td>{post.seats}</td>
-              <td>{post.email}</td>
-
-              <td style={{ color: 'green', fontWeight: 800 }}>
-                Booking Accepted
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      {/* error modal */}
-      <div>
-        <Modal
-          open={AvailabilityModalOpnenError}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
+      <div
+        className="container"
+        style={{
+          width: '100%',
+          height: '50vh',
+          overflow: 'hidden',
+          position: 'relative',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: 8,
+            marginTop: 8,
+          }}
         >
-          <Box sx={style}>
-            {/* <Typography id="modal-modal-title" variant="h6" component="h2">
+          <br />
+          <input onChange={handleEmail} placeholder="Enter email to search" />
+          <br />
+          <br />
+          <button className="btn btn-success" onClick={() => SearchBookings()}>
+            Search My Bookings
+          </button>
+        </div>
+        <div
+          className="col-lg-9 mt-2 mb-2"
+          style={{ backgroundColor: '#864000', color: 'white' }}
+        >
+          <h3>Accepted Seat Bookings</h3>
+        </div>
+        <table className="table table-hover">
+          <thead>
+            <th>#</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>Destination</th>
+            <th>No.of seats</th>
+            <th>Email</th>
+            <th>Accept status</th>
+          </thead>
+
+          <tbody>
+            {bookingArray.map((post, index) => (
+              <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{post.date}</td>
+                <td>{post.start}</td>
+                <td>{post.end}</td>
+                <td>{post.seats}</td>
+                <td>{post.email}</td>
+
+                <td style={{ color: 'green', fontWeight: 800 }}>
+                  Booking Accepted
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {/* error modal */}
+        <div>
+          <Modal
+            open={AvailabilityModalOpnenError}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              {/* <Typography id="modal-modal-title" variant="h6" component="h2">
               Available number of seats : {seats}
             </Typography> */}
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Sorry Booking fail. Seats not available.
-            </Typography>
-          </Box>
-        </Modal>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Sorry Booking fail. Seats not available.
+              </Typography>
+            </Box>
+          </Modal>
+        </div>
       </div>
     </div>
   );
