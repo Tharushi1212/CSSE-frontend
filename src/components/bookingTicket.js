@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import {
   FormControl,
   Box,
@@ -14,15 +14,17 @@ import Paper from '@mui/material/Paper';
 import Modal from '@mui/material/Modal';
 
 import bus from '../assets/bus.jpg';
+import cover from '../assets/Cover.png';
 import AdminViewBookedSeats from './adminViewBookedSeats';
 
 const ColorButton = styled(Button)(({ theme }) => ({
-  backgroundColor: '#66ff66',
+  backgroundColor: '#FF7A00',
   '&:hover': {
-    backgroundColor: '#66ff66',
+    backgroundColor: '#FF7A00',
   },
-  outlineColor: '#66ff66',
-  color: 'black',
+  outlineColor: '#FF7A00',
+  color: 'white',
+  fontWeight: 600,
   autoCapitalize: 'none',
   borderRadius: 15,
 }));
@@ -90,7 +92,7 @@ const BookingTicket = () => {
   };
 
   const myStyle = {
-    backgroundImage: `url(${bus})`,
+    backgroundImage: `url(${cover})`,
 
     marginTop: '-70px',
     // fontSize: '50px',
@@ -100,6 +102,29 @@ const BookingTicket = () => {
 
   return (
     <>
+      {/* <div
+        className="col-md-8 mt-4 mx-auto"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      > */}
+      <div
+        className="col-lg-9 mt-2 mb-2"
+        style={{
+          backgroundColor: '#864000',
+          color: 'white',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: 'auto',
+        }}
+      >
+        <h3> ONLINE SEAT RESERVATION</h3>
+      </div>
       <div style={myStyle}>
         <div
           style={{
@@ -113,29 +138,18 @@ const BookingTicket = () => {
               backgroundColor: '#ffffff',
               border: '1px solid black',
               borderRadius: 8,
+              marginBottom: 20,
+
               //opacity: 0.6,
             }}
           >
             <FormControl
               sx={{
                 width: 450,
-                height: 500,
-                //marginTop: -48,
+                height: 400,
               }}
             >
-              <Typography
-                style={{
-                  textAlign: 'center',
-                  fontWeight: 'bold',
-                  marginBottom: 14,
-                  marginTop: 100,
-                  fontSize: 26,
-                  color: '#000000',
-                }}
-              >
-                ONLINE SEAT RESERVATION.
-              </Typography>
-              <Box style={{ padding: 19, width: 450, height: 600 }}>
+              <Box style={{ padding: 19, width: 450, height: 500 }}>
                 <div style={{ marginTop: 5 }}>
                   <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
                     Departure Date
@@ -239,6 +253,7 @@ const BookingTicket = () => {
           </div>
         </div>
       </div>
+
       {/* availability modal */}
       <div>
         <Modal
