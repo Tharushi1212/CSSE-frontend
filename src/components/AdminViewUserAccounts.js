@@ -82,7 +82,7 @@ export default class AdminViewUserAccounts extends Component {
                                 <b><a className="nav-link active" href="/AdminViewUserAccounts"><h5>View All User Accounts</h5></a></b>
                             </li>
                             <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                                <b><a className="nav-link" href="/"><h5>View Seat Booking Details</h5></a></b>
+                                <b><a className="nav-link" href="/veiwBookings"><h5>View Seat Booking Details</h5></a></b>
                             </li>
                             <button className="btn btn-success"><a href="/HomePage" style={{ textDecoration: 'none', color: 'white' }}>Log Out</a></button>
 

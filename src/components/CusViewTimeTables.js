@@ -83,7 +83,10 @@ export default class CusViewTimeTables extends Component {
                                     <b><a className="nav-link" href="/ViewUserAccounts"><h5>Delete User Account Details</h5></a></b>
                                 </li>
                                 <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                                    <b><a className="nav-link" href="/"><h5>Online Seat Booking</h5></a></b>
+                                    <b><a className="nav-link" href="/bookingTicket"><h5>Online Seat Booking</h5></a></b>
+                                </li>
+                                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
+                                    <b><a className="nav-link" href="/userViewBookings"><h5>View Seat Booking Details</h5></a></b>
                                 </li>
                                 <button className="btn btn-success"><a href="/HomePage" style={{ textDecoration: 'none', color: 'white' }}>Log Out</a></button>
                             </ul>
