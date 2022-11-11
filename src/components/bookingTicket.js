@@ -121,7 +121,7 @@ const BookingTicket = (props) => {
       setAvailabilityModalOpnenError(true);
     }
   };
-
+  //this is the style
   const myStyle = {
     backgroundImage: `url(${cover})`,
 
@@ -132,235 +132,330 @@ const BookingTicket = (props) => {
   };
 
   return (
-      <div>
-        <center>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-
-
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link" aria-current="page" href="/CusViewTimeTables"><h5>View Bus Time Table</h5></a></b>
-                </li>
-                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link" aria-current="page" href="/ViewUserAccounts"><h5>View User Account Details</h5></a></b>
-                </li>
-                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link" aria-current="page" href="/AddUserAccount"><h5>Create New User Account</h5></a></b>
-                </li>
-                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link" aria-current="page" href="/ViewUserAccounts"><h5>Update User Account Details</h5></a></b>
-                </li>
-                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link" href="/ViewUserAccounts"><h5>Delete User Account Details</h5></a></b>
-                </li>
-                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link active" href="/bookingTicket"><h5>Online Seat Booking</h5></a></b>
-                </li>
-                <li className="nav-item" style={{ backgroundColor: '#C0C0C0', color: 'black', marginRight: '5px' }}>
-                  <b><a className="nav-link" href="/userViewBookings"><h5>View Seat Booking Details</h5></a></b>
-                </li>
-                <button className="btn btn-success"><a href="/HomePage" style={{ textDecoration: 'none', color: 'white' }}>Log Out</a></button>
-              </ul>
-
-
-            </div>
-
-          </nav></center>
-    <>
-      <div
-        className="col-lg-9 mt-2 mb-2"
-        style={{
-          backgroundColor: '#864000',
-          color: 'white',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          margin: 'auto',
-        }}
-      >
-        <h3> ONLINE SEAT RESERVATION</h3>
-      </div>
-      <div style={myStyle}>
+    <div>
+      <center>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/CusViewTimeTables"
+                  >
+                    <h5>View Bus Time Table</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/ViewUserAccounts"
+                  >
+                    <h5>View User Account Details</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/AddUserAccount"
+                  >
+                    <h5>Create New User Account</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a
+                    className="nav-link"
+                    aria-current="page"
+                    href="/ViewUserAccounts"
+                  >
+                    <h5>Update User Account Details</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a className="nav-link" href="/ViewUserAccounts">
+                    <h5>Delete User Account Details</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a className="nav-link active" href="/bookingTicket">
+                    <h5>Online Seat Booking</h5>
+                  </a>
+                </b>
+              </li>
+              <li
+                className="nav-item"
+                style={{
+                  backgroundColor: '#C0C0C0',
+                  color: 'black',
+                  marginRight: '5px',
+                }}
+              >
+                <b>
+                  <a className="nav-link" href="/userViewBookings">
+                    <h5>View Seat Booking Details</h5>
+                  </a>
+                </b>
+              </li>
+              <button className="btn btn-success">
+                <a
+                  href="/HomePage"
+                  style={{ textDecoration: 'none', color: 'white' }}
+                >
+                  Log Out
+                </a>
+              </button>
+            </ul>
+          </div>
+        </nav>
+      </center>
+      <>
         <div
+          className="col-lg-9 mt-2 mb-2"
           style={{
-            justifyContent: 'center',
+            backgroundColor: '#864000',
+            color: 'white',
+            width: '100%',
             display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: 'auto',
           }}
         >
+          <h3> ONLINE SEAT RESERVATION</h3>
+        </div>
+        <div style={myStyle}>
           <div
             style={{
-              marginTop: 80,
-              backgroundColor: '#ffffff',
-              border: '1px solid black',
-              borderRadius: 8,
-              marginBottom: 20,
-
-              //opacity: 0.6,
+              justifyContent: 'center',
+              display: 'flex',
             }}
           >
-            <FormControl
-              sx={{
-                width: 450,
-                height: 400,
+            <div
+              style={{
+                marginTop: 80,
+                backgroundColor: '#ffffff',
+                border: '1px solid black',
+                borderRadius: 8,
+                marginBottom: 20,
+
+                //opacity: 0.6,
               }}
             >
-              <Box style={{ padding: 19, width: 450, height: 500 }}>
-                <div style={{ marginTop: 5 }}>
-                  <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
-                    Departure Date
-                  </Typography>
-                  <input
-                    type="date"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                  />
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    gap: 10,
-                  }}
-                >
-                  {' '}
-                  <div style={{ marginTop: 3 }}>
+              <FormControl
+                sx={{
+                  width: 450,
+                  height: 400,
+                }}
+              >
+                <Box style={{ padding: 19, width: 450, height: 500 }}>
+                  <div style={{ marginTop: 5 }}>
                     <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
-                      From
+                      Departure Date
+                    </Typography>
+                    <input
+                      type="date"
+                      value={date}
+                      onChange={(e) => setDate(e.target.value)}
+                    />
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      gap: 10,
+                    }}
+                  >
+                    {' '}
+                    <div style={{ marginTop: 3 }}>
+                      <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
+                        From
+                      </Typography>
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={start}
+                        label="To"
+                        onChange={(e) => setStart(e.target.value)}
+                        style={{ width: 145 }}
+                      >
+                        <MenuItem value="Kaduwela">Kaduwela</MenuItem>
+                      </Select>
+                    </div>
+                    <div style={{ marginTop: 5, marginLeft: 10 }}>
+                      <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
+                        To
+                      </Typography>
+
+                      <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={end}
+                        label="To"
+                        onChange={(e) => handleDestination(e)}
+                        style={{ width: 145 }}
+                      >
+                        <MenuItem value="Negombo">Negombo</MenuItem>
+                        <MenuItem value="Mathara">Mathara</MenuItem>
+                        <MenuItem value="Galle">Galle</MenuItem>
+                        <MenuItem value="Colombo">Colombo</MenuItem>
+                        <MenuItem value="Kollupitiya">Kollupitiya</MenuItem>
+                        <MenuItem value="Gampaha">Gampaha</MenuItem>
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: 5 }}>
+                    <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
+                      No. of seats
                     </Typography>
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={start}
-                      label="To"
-                      onChange={(e) => setStart(e.target.value)}
+                      value={seats}
+                      label="seats"
+                      onChange={(e) => setSeats(e.target.value)}
                       style={{ width: 145 }}
                     >
-                      <MenuItem value="Kaduwela">Kaduwela</MenuItem>
+                      <MenuItem value={1}>1</MenuItem>
+                      <MenuItem value={2}>2</MenuItem>
+                      <MenuItem value={3}>3</MenuItem>
+                      <MenuItem value={4}>4</MenuItem>
+                      <MenuItem value={5}>5</MenuItem>
+                      <MenuItem value={6}>6</MenuItem>
+                      <MenuItem value={7}>7</MenuItem>
+                      <MenuItem value={8}>8</MenuItem>
+                      <MenuItem value={9}>9</MenuItem>
+                      <MenuItem value={10}>10</MenuItem>
+                      <MenuItem value={11}>11</MenuItem>
+                      <MenuItem value={12}>12</MenuItem>
                     </Select>
                   </div>
-                  <div style={{ marginTop: 5, marginLeft: 10 }}>
+                  <div style={{ marginTop: 5 }}>
                     <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
-                      To
+                      Email
                     </Typography>
-
-                    <Select
-                      labelId="demo-simple-select-label"
-                      id="demo-simple-select"
-                      value={end}
-                      label="To"
-                      onChange={(e) => handleDestination(e)}
-                      style={{ width: 145 }}
-                    >
-                      <MenuItem value="Negombo">Negombo</MenuItem>
-                      <MenuItem value="Mathara">Mathara</MenuItem>
-                      <MenuItem value="Galle">Galle</MenuItem>
-                      <MenuItem value="Colombo">Colombo</MenuItem>
-                      <MenuItem value="Kollupitiya">Kollupitiya</MenuItem>
-                      <MenuItem value="Gampaha">Gampaha</MenuItem>
-                    </Select>
+                    <TextField
+                      id="outlined-basic"
+                      label="email"
+                      variant="outlined"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
-                </div>
-
-                <div style={{ marginTop: 5 }}>
-                  <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
-                    No. of seats
-                  </Typography>
-                  <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={seats}
-                    label="seats"
-                    onChange={(e) => setSeats(e.target.value)}
-                    style={{ width: 145 }}
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'row',
+                      justifyContent: 'flex-end',
+                      marginTop: 15,
+                    }}
                   >
-                    <MenuItem value={1}>1</MenuItem>
-                    <MenuItem value={2}>2</MenuItem>
-                    <MenuItem value={3}>3</MenuItem>
-                    <MenuItem value={4}>4</MenuItem>
-                    <MenuItem value={5}>5</MenuItem>
-                    <MenuItem value={6}>6</MenuItem>
-                    <MenuItem value={7}>7</MenuItem>
-                    <MenuItem value={8}>8</MenuItem>
-                    <MenuItem value={9}>9</MenuItem>
-                    <MenuItem value={10}>10</MenuItem>
-                    <MenuItem value={11}>11</MenuItem>
-                    <MenuItem value={12}>12</MenuItem>
-                  </Select>
-                </div>
-                <div style={{ marginTop: 5 }}>
-                  <Typography style={{ marginBottom: 3, fontWeight: 600 }}>
-                    Email
-                  </Typography>
-                  <TextField
-                    id="outlined-basic"
-                    label="email"
-                    variant="outlined"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'flex-end',
-                    marginTop: 15,
-                  }}
-                >
-                  <ColorButton
-                    variant="contained"
-                    onClick={onInsertOk}
-                    size="small"
-                  >
-                    Book Tickets
-                  </ColorButton>
-                </div>
-              </Box>
-            </FormControl>
+                    <ColorButton
+                      variant="contained"
+                      onClick={onInsertOk}
+                      size="small"
+                    >
+                      Book Tickets
+                    </ColorButton>
+                  </div>
+                </Box>
+              </FormControl>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* availability modal */}
-      <div>
-        <Modal
-          open={AvailabilityModalOpnen}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              <b> Checking availability....</b>
-              <br />
-              Wait until you get the confirmation message.
-            </Typography>
-          </Box>
-        </Modal>
-      </div>
+        {/* availability modal */}
+        <div>
+          <Modal
+            open={AvailabilityModalOpnen}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                <b> Checking availability....</b>
+                <br />
+                Wait until you get the confirmation message.
+              </Typography>
+            </Box>
+          </Modal>
+        </div>
 
-      {/* error modal */}
-      <div>
-        <Modal
-          open={AvailabilityModalOpnenError}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            {/* <Typography id="modal-modal-title" variant="h6" component="h2">
+        {/* error modal */}
+        <div>
+          <Modal
+            open={AvailabilityModalOpnenError}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              {/* <Typography id="modal-modal-title" variant="h6" component="h2">
               Available number of seats : {seats}
             </Typography> */}
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Sorry Booking fail. Seats not available.
-            </Typography>
-          </Box>
-        </Modal>
-      </div>
-      
-    </>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Sorry Booking fail. Seats not available.
+              </Typography>
+            </Box>
+          </Modal>
+        </div>
+      </>
     </div>
   );
 };
